@@ -14,6 +14,9 @@ namespace fukuvHensu
     {
         int vx = 0;
         int vy = 0;
+        string face = "(・ー・)";
+        int speed = 5;
+        int speedUp = 5;
 
         public Form1()
         {
@@ -27,32 +30,41 @@ namespace fukuvHensu
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Left += vx;
-            label1.Top += vy;
+            label1.Left += vx * speed;
+            label1.Top += vy * speed;
+
+            string temp = label1.Text;
+            label1.Text = face;
+            face = temp;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             vx = 0;
-            vy = -5;
+            vy = -1;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            vx = -5;
+            vx = -1;
             vy = 0;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            vx = 5;
+            vx = 1;
             vy = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             vx = 0;
-            vy = 5;
+            vy = 1;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            speed += speedUp;
         }
     }
 }
